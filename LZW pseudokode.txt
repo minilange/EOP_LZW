@@ -30,8 +30,8 @@ LZW-dekomprimering af inputdata
         tilføj ascii værdi til ordbog med tegnet
         ordbog[ascii værdi] = tegn
     
-    output = tom streng
-    forrige-sekvens = tom streng
+    output = tegn fra første kode i inputdata
+    forrige-sekvens = tegn fra første kode i inputdata 
 
     for hver kode i inputdata
         hvis kode er i ordbog

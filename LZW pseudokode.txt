@@ -1,0 +1,68 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LZW-komprimering af inputstreng
+    ordbog = tom ordbog
+
+    for hvert tegn i ascii tabellen
+        tilføj tegn til ordbog med værdi i ascii tabellen
+        ordbog[tegn] = ascii værdi
+    
+    output = tom liste
+    nuværende-sekvens = tom streng
+
+    for hver tegn i inputstrengen
+
+        hvis nuværende-sekvens + tegn er i ordbog
+            nuværende-sekvens = nuværende-sekvens + tegn
+        ellers
+            tilføj ordbog nummer for nuværende-sekvens til output
+            tilføj nuværende-sekvens + tegn til ordbog med ny værdi
+            nuværende-sekvens = tegn
+    
+    hvis nuværende-sekvens ikke er tom
+        tilføj ordbog nummer for nuværende-sekvens til output
+
+    returner output
+
+
+LZW-dekomprimering af inputdata
+    ordbog = tom ordbog
+
+    for hvert tegn i ascii tabellen
+        tilføj ascii værdi til ordbog med tegnet
+        ordbog[ascii værdi] = tegn
+    
+    output = tom streng
+    forrige-sekvens = tom streng
+
+    for hver kode i inputdata
+        hvis kode er i ordbog
+            nuværende-sekvens = ordbog[kode]
+        ellers
+            nuværende-sekvens = forrige-sekvens + første tegn i forrige-sekvens
+        
+        tilføj nuværende-sekvens til output
+
+        tilføj forrige-sekvens + første tegn i nuværende-sekvens til ordbog med ny værdi
+        forrige-sekvens = nuværende-sekvens
+
+    returner output
+
+
+
+

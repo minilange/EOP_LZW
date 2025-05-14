@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Initialize dictionary with all 256 ACII values with <number, string> pair
+    // Initialize dictionary with all 256 ACII values as <number, string> pair
     map<uint16_t, ustring> dict;
     for (int i = 0; i < 256; i++)
     {
@@ -89,9 +89,9 @@ int main(int argc, char *argv[])
         lastSeq = currentSeq;
         inputSize++;
     }
-    // Close file 
+    // Close file
     inputFile.close();
-    
+
     // Print out usefull information
     cout << "Read " << inputSize * 2 << " bytes from the input file" << endl;
     cout << "Dictionary size is " << dict.size() << endl;
@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
     filesystem::path p(filePath);
     string filename = p.stem().string();
     filename = filename.substr(0, filename.find_first_of("_"));
-    string outputFilePath = "./examples/" + filename + "_decompressed";
+    string outputFilePath = "./files/" + filename + "_decompressed";
 
     // Make file with decompressed data
     ofstream decompressedFile(outputFilePath);
@@ -109,5 +109,6 @@ int main(int argc, char *argv[])
         decompressedFile << c;
     }
     decompressedFile.close();
+
     return 0;
 }
